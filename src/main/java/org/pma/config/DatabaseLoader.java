@@ -25,6 +25,7 @@ public class DatabaseLoader {
 	@PostConstruct
 	private void initDatabase() {
 
+		
 		authorRepository.deleteAll();
 		Author dv = new Author();
 		dv.setFirstName("Binay");
