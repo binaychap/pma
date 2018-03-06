@@ -13,6 +13,8 @@ public class AuthorController {
 	
 	@Autowired
 	AuthorRepository authorRepository;
+	
+
 
 	@RequestMapping("/list")
 	@ResponseBody

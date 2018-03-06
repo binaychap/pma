@@ -2,6 +2,7 @@ package org.pma.controller;
 
 
 import org.pma.service.PostService;
+import org.pma.service.PostServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PostController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(PostController.class);
-	
-	private PostService postService;
-	
+
 	@Autowired
-	public PostController(PostService postService){
-		this.postService = postService;
-	}
+	private PostService postService;
 
 	@RequestMapping("/list")
 	public String listPosts(Model model){

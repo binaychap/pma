@@ -10,12 +10,13 @@ buildscript {
 	}
 }
 
-apply plugin: 'java'
+//apply plugin: 'java'
+apply plugin: 'war'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
 group = 'org.pma'
-version = '0.0.1-SNAPSHOT'
+//version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
@@ -36,6 +37,8 @@ dependencies {
 	compile 'org.springframework.data:spring-data-mongodb'
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	//compile('org.springframework.boot:spring-boot-starter-security')
+	
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 
 	compile group: 'com.sun.jna', name: 'jna', version: '3.0.9'
 }
