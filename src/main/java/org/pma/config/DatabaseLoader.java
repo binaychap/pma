@@ -26,14 +26,14 @@ public class DatabaseLoader {
 	private void initDatabase() {
 
 		
-		authorRepository.deleteAll();
+		//authorRepository.deleteAll();
 		Author dv = new Author();
 		dv.setFirstName("Binay");
 		dv.setLastName("Rai");
 		dv.setEmail("binayrai@gmail.com");
 		authorRepository.save(dv);
 
-		postRepository.deleteAll();
+		//postRepository.deleteAll();
 
 		Post post = new Post();
 		post.setTitle("PMA Data Rocks!");

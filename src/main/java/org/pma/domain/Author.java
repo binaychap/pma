@@ -1,35 +1,49 @@
 package org.pma.domain;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.math.BigInteger;
+
+
+
 import java.util.ArrayList;
 import java.util.List;
 
-@Document
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+
+@Entity
 public class Author {
 
+
 	@Id
-	private BigInteger id;
+	@GeneratedValue
+	private Long id;
 	private String firstName;
 	private String lastName;
 	private String email;
-
-	@DBRef
+	
+	//posts
+	@OneToMany(mappedBy="author")
 	private List<Post> posts;
+	
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
 
 	public Author(){
-		posts = new ArrayList<Post>();
+		this.posts = new ArrayList<>();
+		
 	}
-
-	public BigInteger getId() {
-		return id;
-	}
-
-	public void setId(BigInteger id) {
-		this.id = id;
+	
+	public Author(String first, String last){
+		this.setFirstName(first);
+		this.setLastName(last);
 	}
 
 	public String getFirstName() {
@@ -56,21 +70,9 @@ public class Author {
 		this.email = email;
 	}
 
-	public List<Post> getPosts() {
-		return posts;
-	}
-
-	public void setPosts(List<Post> posts) {
-		this.posts = posts;
-	}
-
-	public void addPost(Post post){
-		this.posts.add(post);
-	}
-
 	@Override
 	public String toString() {
-		return "Author [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+		return "Author [firstName=" + firstName + ", lastName=" + lastName + "]";
 	}
 
 

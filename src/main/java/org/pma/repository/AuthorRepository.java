@@ -5,9 +5,10 @@ package org.pma.repository;
 
 import org.pma.domain.Author;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import java.math.BigInteger;
 
-public interface AuthorRepository extends CrudRepository<Author, BigInteger> {
+@Repository
+public interface AuthorRepository extends CrudRepository<Author, Long> {
 
 }
