@@ -26,3 +26,4 @@ nbdist/
 .idea
 .gradle
 .DS_Store
+/bin/

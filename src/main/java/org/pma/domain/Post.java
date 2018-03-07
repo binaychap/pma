@@ -1,45 +1,49 @@
 package org.pma.domain;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.math.BigInteger;
+
 import java.util.Date;
 
-@Document
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.data.annotation.CreatedDate;
+
+@Entity
 public class Post {
 
-	@Id
-	private BigInteger id;
+	
 
+	@Id @GeneratedValue
+	private Long id;
 	private String title;
-
+	
+	@Column(columnDefinition = "TEXT")
 	private String body;
-
+	
+	@Column(columnDefinition = "TEXT")
 	private String teaser;
-
+	
 	private String slug;
-
+	
+	@CreatedDate 
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date postedOn;
 
-	@DBRef
+	@ManyToOne
 	private Author author;
+	
 
 	public Post(){
-
 	}
-
+	
 	public Post(String title){
 		this.setTitle(title);
-	}
-
-	public BigInteger getId() {
-		return id;
-	}
-
-	public void setId(BigInteger id) {
-		this.id = id;
 	}
 
 	public String getTitle() {
@@ -48,21 +52,6 @@ public class Post {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	public String getTeaser() {
-		return teaser;
-	}
-
-	public void setTeaser(String teaser) {
-		this.teaser = teaser;
-	}
-
-	public String getSlug() {
-		return slug;
-	}
-
-	public void setSlug(String slug) {
-		this.slug = slug;
 	}
 
 	public String getBody() {
@@ -87,6 +76,22 @@ public class Post {
 
 	public void setAuthor(Author author) {
 		this.author = author;
+	}
+	
+	public String getTeaser() {
+		return teaser;
+	}
+
+	public void setTeaser(String teaser) {
+		this.teaser = teaser;
+	}
+
+	public String getSlug() {
+		return slug;
+	}
+
+	public void setSlug(String slug) {
+		this.slug = slug;
 	}
 
 	@Override

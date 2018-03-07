@@ -1,6 +1,7 @@
 package org.pma.controller;
 
 
+import org.pma.service.PostService;
 import org.pma.service.PostServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,12 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	private PostServiceImpl postService;
 	
 	@Autowired
-	public HomeController(PostServiceImpl postService){
-		this.postService = postService;
-	}
+	private PostService postService;
+	
 	
 	@RequestMapping("/")
 	public String home(Model model){
