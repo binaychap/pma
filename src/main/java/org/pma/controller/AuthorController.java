@@ -22,8 +22,4 @@ public class AuthorController {
 		return authorRepository.findAll();
 	}
 	
-	public void test() {
-		System.out.println("revert test");
-	}
-	
 }
