@@ -17,7 +17,7 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'org.pma'
 //version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+sourceCompatibility = 1.9
 
 repositories {
 	mavenCentral()
@@ -32,7 +32,8 @@ dependencies {
 	compile ('org.springframework.boot:spring-boot-starter-security')
 	compile('org.postgresql:postgresql')
 	
-
+	//for jdk 9 to add jaxb-in jdk 8 no need. from jdk 9 it deprecated
+	runtime('org.glassfish.jaxb:jaxb-runtime:2.3.0', 'javax.activation:activation:1.1.1')
     compile("org.springframework.security.oauth:spring-security-oauth2:2.3.3.RELEASE")
 }
 
